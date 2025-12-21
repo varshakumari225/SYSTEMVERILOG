@@ -51,3 +51,57 @@ $display("The size of the queue is : %0d",que.size());
 
 end
 endmodule
+
+//RANDOM QUEUE
+
+module r_que;
+int q[$];
+parameter size=5;
+int intx,temp;
+
+initial begin
+$display("----------------------------------------");
+$display("                  Q5(A)                 ");
+$display("----------------------------------------");
+//assigning values for queue
+
+for(int i=1;i<size;i++)begin
+q.push_back(i**2);
+end
+
+//printin all values along with index
+$display("-------------------------------------");
+foreach(q[i])begin
+$display("queue values index : %0d value : %0d",i,q[i]);
+end
+
+//Display the size of queue
+$display("-------------------------------------");
+$display("Size of the queue : %0d",q.size());
+
+//Randomize the intx and print the value of the queue randomly
+$display("-------------------------------------");
+repeat(2)begin
+std::randomize(intx) with {intx>=0;intx<q.size();};
+//$display("intx : %0d",intx);
+$display("Random index : %0d value : %0d ",intx,q[intx]);
+end
+
+//Deleting value at random index and printing the size of the queue
+$display("--------------------------------------------");
+$display("The size of the queue before deleting : %0p",q.size());
+q.delete(intx);
+$display("-----------------------------------------------------------------");
+$display("The size of the queue after deleting : %0p index :%0d  value :%0d",q.size(),intx,q[intx]);
+$display("-----------------------------------------------------------------");
+q.delete(intx);
+$display("The size of the queue after deleting : %0p index :%0d value :%0d",q.size(),intx,q[intx]);
+
+//Inserting value 10 at index 2
+$display("-----------------------------------------------------------------");
+q.insert(2,10);
+$display("%0p",q);
+
+end
+endmodule
+ 
