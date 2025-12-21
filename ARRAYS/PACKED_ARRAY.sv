@@ -15,3 +15,28 @@ initial begin
 	end
 end
 endmodule
+
+//PACKED ARRAYS
+
+module packed_array;
+bit [4:0]a;//4,3,2,1,0
+bit [4:0]b;
+bit [4:0]c;
+bit [1:0]d;
+bit [1:5]e;//1,2,3,4,5
+//assign c=a&b;
+//assign c=a|b;
+assign c=a^b;
+//assign e=a;
+assign d=b;
+assign e=$urandom_range(0,100);
+initial begin
+a=4'b1011;
+b=4'b1010;
+$display("array A=%0b",a);
+$display("array B=%0b",b);
+$display("array c=%0b",c);
+$display("array d=%0b",d);
+$display("array e=%0b",e);
+end
+endmodule
