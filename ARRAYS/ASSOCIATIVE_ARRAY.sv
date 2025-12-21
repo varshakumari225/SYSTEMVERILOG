@@ -36,3 +36,46 @@ $display("not exists");
 
 end
 endmodule
+
+//ANOTHER WAY OF ASSOSIACTE ARRAY
+
+module associate_array;
+int asa[int];
+int a,b,key,h;
+int q[$:9];
+initial begin
+
+for(int i=0;i<=9;i++)begin
+ a=$urandom_range(0,80);
+ b=$urandom_range(0,80);
+asa[a]=b;
+$display("ass[%0d]=%0d",a,b);
+end
+
+/*
+$display("The number of entries in associate array is : %0d",asa.num());
+
+asa.last(key);
+for(int i=1;i<=asa.num;i++)begin
+$display("asa[%0d]=%0d",key,asa[key]);
+asa.prev(key);
+end
+
+$display("%0d",asa);
+asa.delete(50);
+$display("%0d",asa);
+*/
+
+
+foreach(asa[p])begin
+q.push_back(asa[p]);
+end
+$display("%0p",q);
+
+q.rsort();//descending order
+$display("%0p",q);
+
+q.sort();//ascending order
+$display("%0p",q);
+end
+endmodule
