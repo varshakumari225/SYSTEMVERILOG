@@ -1,5 +1,5 @@
 //4 state data types
-//For Logic data type we can assign value throungh procedural block or by usin assign statement
+//For Logic data type we can assign value throungh procedural block or by using assign statement
 /*module logic_data_type;
 logic [3:0]data;
 logic my_data;
