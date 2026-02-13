@@ -1,37 +1,36 @@
 class check;
-  virtual intf c_intf;
-  transaction c_tx;
-  int data[$];
-  int temp;
-
-  task run();
-    $display("////////////// CHECKER /////////////");
+  transaction tx;
+ virtual intf c_intf;
+  bit [7:0] data[$];
+  bit [7:0]temp;
  
-
-    forever begin
-	
-      cfg::mon2che.get(c_tx);
-
-      if(c_tx.wr_rd==1) begin
-        data.push_back(c_tx.wr_data);
-        $display("[%0t] [CHECKER] Pushed: %0d | Queue: %0p",$time, c_tx.wr_data, data);
-      end
-      else if(c_tx.wr_rd==0)begin
+task run();
+    $display("////////////// CHECKER /////////////");
+forever begin
+cfg::mon2che.get(tx);
+if(tx.wr_rd) begin
+	data.push_front(tx.wr_data);
+	$display("[%0t][CHECKER] Pushed: %0d",$time,tx.wr_data);
+end
+else if (!tx.wr_rd)begin
    
-        if(data.size() > 0) begin
-          temp = data.pop_back(); 
-          //$display("[TEMP] : %0d",temp);
-          if(temp == c_tx.rd_data) begin
-            $display("[%0t] [MATCHED] Expected: %0d, Got: %0d",$time, temp, c_tx.rd_data);
-          end
-          else begin
-            $display("[%0t] [MIS-MATCH] Expected: %0d, Got: %0d",$time, temp, c_tx.rd_data);
-          end
+        if(data.size()>0) begin
+        temp=data.pop_front();
+       //$display("temp=%0d rd_data=%0d",temp,c_tx.rd_data);
+
+        	if(tx.rd_data==temp)
+            	$display("[%0t] address : %0d [MATCHED] expected : %0d | got : %0d",$time,tx.addr,temp,tx.rd_data);
+        	
+        	else 
+            	$display("[%0t] address :%0d [MIS-MATCH] expected : %0d | got : %0d",$time,tx.addr,temp,tx.rd_data);
+      
         end
-        else begin
-         $display("[ERROR] Read attempted but Queue is empty!");
-        end
-      end
-    end
-  endtask
+
+	else 
+	$display("              QUEUE IS EMPTY            ");
+
+end
+
+end
+endtask
 endclass
