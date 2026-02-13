@@ -11,6 +11,7 @@ always @(posedge clk)begin
 
 if(!rst)begin
 rd_data<=8'b0;
+for(int i=0;i<=256;i++)memory[i]<=8'b0;
 end
 
 else begin
