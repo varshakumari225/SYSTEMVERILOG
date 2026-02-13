@@ -18,13 +18,16 @@ task run();
 $display("");
 $display("///////////ENVIRONMENT////////////////");
 $display("");
+
 fork
 g.run();
 bfm.run();
 mon.run();
 cov.run();
 c.run();
-join_any
+join
+
+
 
 endtask
 
