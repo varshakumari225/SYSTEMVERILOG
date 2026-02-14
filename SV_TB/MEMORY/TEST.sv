@@ -7,8 +7,10 @@ $display("////////////Test////////////////");
 $display("");
 e=new();
 e.run();
-#500;
+
+#10280;
 $display("Simulationfinished at time %0t ",$time);
+
 end
 
 endprogram
