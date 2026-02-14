@@ -1,3 +1,4 @@
+typedef class cfg;
 module top;
 logic clk;
 logic rst;
@@ -16,10 +17,11 @@ end
 initial begin
 $display("////////////////////TOP MODULE/////////////////////");
 rst=0;
-repeat(2)
+repeat(1)begin
 @(posedge clk);
 rst=1;
-
+end/*
+#10280;
+$finish;*/
 end
-
 endmodule
