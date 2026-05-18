@@ -1,3 +1,5 @@
+// write a constraint to generate below pattern 5 -10 15 -20 25 -30
+
 class c3;
 rand int a[];
 constraint s_a{a.size==10;}
