@@ -1,3 +1,4 @@
+// Write a constraint to generate the pattern 0102030405.
 class const5;
 rand int a[];
 
