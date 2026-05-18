@@ -1,5 +1,5 @@
-/*Write a for a 32 bit rand variable such that it should have 12
-number of 1's non consecutively.*/
+//Write a for a 32 bit rand variable such that it should have 12
+number of 1's non consecutively.
 
 
 class const_gen;
