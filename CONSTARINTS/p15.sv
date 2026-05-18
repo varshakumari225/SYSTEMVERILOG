@@ -1,3 +1,4 @@
+// Even numbers & Odd number
 class c_gen;
   rand int a[];
   
