@@ -1,3 +1,4 @@
+// Write a constraint to genarate FACTORIAL of first 5 even numbers and odd numbers .
 class const_gen;
 randc int fact[5];
 int even[5];
