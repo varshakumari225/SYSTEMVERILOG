@@ -1,3 +1,4 @@
+// Write a constraaint to generate the pattern 1122334455
 class c4;
 rand int a[];
 int i;
