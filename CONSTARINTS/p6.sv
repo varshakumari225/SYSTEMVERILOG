@@ -1,3 +1,4 @@
+// Write constraint to generate random values 25,27,30,36,40,45 without using "set membership"
 class const7;
 rand int a[];
 int temp[$];
