@@ -1,3 +1,4 @@
+// random cyclic behaviour without randc keyword
 /*class w_randc;
   rand logic [1:0]arr[];
  
