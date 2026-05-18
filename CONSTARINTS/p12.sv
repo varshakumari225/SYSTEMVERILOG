@@ -1,3 +1,4 @@
+// Prime number generation
 class prime_c;
 
   rand int num;
