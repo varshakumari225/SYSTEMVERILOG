@@ -1,3 +1,4 @@
+// pattern 1234554321 
 class c1;
 	rand int a[];
 	constraint s_a{a.size==10;}
