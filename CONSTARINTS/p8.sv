@@ -1,3 +1,4 @@
+//Write a code to generate random number between 1.35 and 2.57
 class ex5;
 rand real a;
 
